@@ -1,0 +1,41 @@
+{{> settings_tabs}}
+<br />
+<div class="row">
+	<form class="form-horizontal" action="{{submit_link}}" method="POST">
+		<input type="hidden" name="csrf" value="{{csrf}}" />
+
+		<div class="form-group">
+			<label for="input-email" class="col-lg-2 control-label">E-mail adress</label>
+			<div class="col-lg-3">
+				<input type="email" name="email" class="form-control" id="input-email" value="{{player.email}}" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="input-timezone" class="col-lg-2 control-label">Time zone</label>
+			<div class="col-lg-3">
+				<select name="timezone" class="form-control" id="input-timezone">
+					{{#timezones}}
+					<option{{#selected}} selected{{/selected}} value="{{value}}">{{value}}</option>
+					{{/timezones}}
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="input-pwd" class="col-lg-2 control-label">New password</label>
+			<div class="col-lg-3">
+				<input type="password" name="new_password" class="form-control" id="input-pwd" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="input-pwd2" class="col-lg-2 control-label">Confirm password</label>
+			<div class="col-lg-3">
+				<input type="password" name="confirm_password" class="form-control" id="input-pwd2" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-3">
+				<input type="submit" value="Update" class="btn btn-warning" />
+			</div>
+		</div>
+	</form>
+</div>

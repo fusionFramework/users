@@ -1,0 +1,55 @@
+<form id="form-avatars" class="form-horizontal">
+	<input type="hidden" name="csrf" value="{{csrf}}">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Avatars</label>
+			<div class="col-sm-10">
+				<div class="row" id="tab-avatars">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="input-group">
+								<input type="text" id="avatar-select-filter-base" class="form-control"/>
+								<span class="input-group-addon"><i class="fa fa-search"></i> </span>
+							</div>
+						</div>
+						<div class="col-sm-2"></div>
+						<div class="col-sm-4">
+							<div class="input-group">
+								<input type="text" class="col-sm-12 pull-right form-control" id="avatar-select-filter-container" />
+								<span class="input-group-addon"><i class="fa fa-search"></i> </span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<select multiple="multiple" class="col-sm-12 form-control" id="avatar-select-base" size="8">
+								{{#avatars_available}}
+								<option value="{{id}}">{{name}}</option>
+								{{/avatars_available}}
+							</select>
+						</div>
+						<div class="col-sm-2 text-centered" style="padding-top: 30px; padding-left: 65px">
+							<a class="btn btn-sm btn-primary" id="avatar-select-in">>></a><br />
+							<a class="btn btn-sm btn-primary" id="avatar-select-out"><<</a>
+						</div>
+						<div class="col-sm-4">
+							<select multiple="multiple" class="col-sm-12 form-control" id="avatar-select-container" size="8" name="avatars[]">
+								{{#avatars}}
+								<option value="{{id}}">{{name}}</option>
+								{{/avatars}}
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4"><a href="#" class="btn btn-xs btn-success" id="avatar-select-fill">Move all</a></div>
+						<div class="col-sm-2"></div>
+						<div class="col-sm-4"><a href="#" class="btn btn-xs btn-danger pull-right" id="avatar-select-empty">Remove all</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<a href="{{submit_link}}" class="btn btn-success" id="avatar-save">Save</a>
+		</div>
+	</div>
+</form>

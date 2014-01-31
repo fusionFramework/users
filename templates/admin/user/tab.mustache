@@ -1,0 +1,23 @@
+<div class="tab-pane fade" id="{{id}}">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="box">
+				<header>
+					<h5>{{title}}</h5>
+					{{#has_button}}
+					<div class="toolbar pull-right">
+						<div class="btn-group">
+							<a href="#{{button.modal_id}}" data-toggle="modal" class="btn btn-sm {{button.class}}">
+								<i class="{{button.icon}}"></i> {{button.message}}
+							</a>
+						</div>
+					</div>
+					{{/has_button}}
+				</header>
+				<div class="body">
+					{{>content}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,66 @@
+<div class="form-group">
+	<div class="col-sm-1 col-sm-offset-3">Date</div>
+	<div class="col-sm-2">
+			<input class="form-control" size="16" type="text" id="log-date-start">
+	</div>
+	<div class="col-sm-2">
+			<input class="form-control" size="16" type="text" id="log-date-end">
+	</div>
+</div>
+<br />
+
+{{&table}}
+
+<script type="application/javascript">
+	var log_routes = {{&routes}};
+</script>
+
+
+<div class="modal fade" id="modal-logs">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">View log</h4>
+	</div>
+	<div class="modal-body">
+		<ul class="nav nav-tabs nav-justified" id="log-tabs">
+			<li><a href="#log-general" data-toggle="tab">General</a></li>
+			<li><a href="#log-data" data-toggle="tab">Data</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div class="tab-pane active in" id="log-general">
+				<div class="row">
+					<div class="col-sm-3"><strong>Alias</strong></div>
+					<div class="col-sm-9" id="log-m-alias"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3"><strong>Date & time</strong></div>
+					<div class="col-sm-9" id="log-m-datetime"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3"><strong>Message</strong></div>
+					<div class="col-sm-9" id="log-m-message"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="log-data">
+				<div class="row">
+					<div class="col-sm-3"><strong>Location</strong></div>
+					<div class="col-sm-9" id="log-m-location"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3"><strong>IP</strong></div>
+					<div class="col-sm-9" id="log-m-ip"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3"><strong>Browser</strong></div>
+					<div class="col-sm-9" id="log-m-browser"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3"><strong>Parameters</strong></div>
+					<div class="col-sm-9"><pre id="log-m-params"></pre></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- /#modal-logs -->

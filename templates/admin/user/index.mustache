@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2">
+		<div class="box">
+			<header>
+				<div class="icons">
+					<i class="fa fa-search"></i>
+				</div>
+				<h5>Find user</h5>
+			</header>
+			<div class="body" id="trigo">
+				<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<form autocomplete="off" action="{{locate_link}}" method="post">
+						<input type="hidden" name="csrf" value="{{csrf}}" />
+						<div class="input-group">
+							<input type="text" name="username" class="typeahead" placeholder="Username" id="user-search" style="width: 100%; height: 45px; font-size:20pt;">
+                            <span class="input-group-btn">
+	                            <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-user"></i></button>
+	                        </span>
+						</div>
+
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.twitter-typeahead .tt-hint {
+		height: 45px;
+		padding: 0;
+		font-size: 20pt;
+	}
+</style>
+<script type="application/javascript">
+	var typeAhead_tpl = {{&typeAhead}};
+</script>

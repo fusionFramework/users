@@ -1,0 +1,141 @@
+<div class="col-sm-2"><br />
+<ul class="nav nav-pills nav-stacked">
+	<li class="active"><a href="#tab-profile" data-toggle="tab">Profile</a></li>
+	{{#tabs}}
+	<li><a href="#{{id}}" data-toggle="tab">{{title}}</a></li>
+	{{/tabs}}
+</ul>
+</div>
+<div class="col-sm-10">
+	<div class="tab-content">
+		<div class="tab-pane fade in active" id="tab-profile">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="box">
+						<header>
+							<h5>Profile</h5>
+						</header>
+						<div class="body">
+							<form action="{{link_submit}}" method="post" id="user_form" class="form-horizontal">
+								<input type='hidden' name='csrf' value='{{csrf}}' />
+								<fieldset>
+									<legend>Game info</legend>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Username</label>
+										<div class="col-sm-10 form-control-static">
+											{{user.username}}
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="input-password" class="col-sm-2 control-label">Password:</label>
+										<div class="col-sm-10">
+											<a href="{{link_reset_pwd}}" class="btn btn-warning" id="input-password">Reset</a>
+										</div>
+									</div>
+									{{^user.activated}}
+									<div class="form-group">
+										<label for="input-activation" class="col-sm-2 control-label">Activation:</label>
+										<div class="col-sm-10">
+											<a href="{{link_reset_activation}}" class="btn btn-warning" id="input-activation">Resend code</a>
+										</div>
+									</div>
+									{{/user.activated}}
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Groups</label>
+										<div class="col-sm-10">
+											<div class="row" id="groups">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="input-group">
+															<input type="text" id="move-select-filter-base" class="form-control"/>
+															<span class="input-group-addon"><i class="fa fa-search"></i> </span>
+														</div>
+													</div>
+													<div class="col-sm-2"></div>
+													<div class="col-sm-4">
+														<div class="input-group">
+															<input type="text" class="col-sm-12 pull-right form-control" id="move-select-filter-container" />
+															<span class="input-group-addon"><i class="fa fa-search"></i> </span>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4">
+														<select multiple="multiple" class="col-sm-12 form-control" id="move-select-base" size="8">
+															{{#groups_available}}
+															<option value="{{id}}">{{name}}</option>
+															{{/groups_available}}
+														</select>
+													</div>
+													<div class="col-sm-2 text-centered" style="padding-top: 30px; padding-left: 65px">
+														<a class="btn btn-sm btn-primary" id="move-select-in">>></a><br />
+														<a class="btn btn-sm btn-primary" id="move-select-out"><<</a>
+													</div>
+													<div class="col-sm-4">
+														<select multiple="multiple" class="col-sm-12 form-control" id="move-select-container" size="8" name="groups[]">
+															{{#groups}}
+															<option value="{{id}}">{{name}}</option>
+															{{/groups}}
+														</select>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4"><a href="#" class="btn btn-xs btn-success" id="move-select-fill">Move all</a></div>
+													<div class="col-sm-2"></div>
+													<div class="col-sm-4"><a href="#" class="btn btn-xs btn-danger pull-right" id="move-select-empty">Remove all</a></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<legend>Personal info</legend>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Name:</label>
+										<div class="col-sm-10 form-control-static">
+											{{user.first_name}} {{user.last_name}}
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="input-email" class="col-sm-2 control-label">Email:</label>
+										<div class="col-sm-4">
+											<input class="form-control" id="input-email" maxlength="127" name="email" type="email" value="{{user.email}}" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="input-timezone">Timezone</label>
+										<div class="col-sm-4 form-control-static">
+											<select class="form-control" id="input-timezone" name="timezone">
+												{{#timezones}}
+												<option value="{{value}}"{{#selected}} selected{{/selected}}>{{value}}</option>
+												{{/timezones}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Created:</label>
+										<div class="col-sm-10 form-control-static">
+											{{user.created_at}}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Last login:</label>
+										<div class="col-sm-10 form-control-static">
+											{{user.last_login}}
+										</div>
+									</div>
+								</fieldset>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-primary" id="form-user-save">Save changes</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{&tab_containers}}
+	</div>
+</div>

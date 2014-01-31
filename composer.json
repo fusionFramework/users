@@ -1,0 +1,25 @@
+{
+	"name"       :"fusionFramework/user",
+	"description":"fusionFramework's user package",
+	"type"       :"fusionFramework",
+	"homepage"   :"https://github.com/fusionFramework/user",
+	"license"    :"MIT",
+	"authors"    :[
+		{
+			"name"    :"Maxim Kerstens",
+			"email"   :"maxim.kerstens@gmail.com",
+			"role"    :"Project maintainer"
+		}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "http://ktt-happydemon.rhcloud.com"
+		}
+	],
+	"require": {
+		"fusionFramework/app": "*",
+		"cartalyst/sentry": "2.0.*",
+		"ircmaxell/password-compat": "1.0.*"
+	}
+}
