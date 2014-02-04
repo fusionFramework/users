@@ -39,7 +39,7 @@ Route::set('user.reset', 'user/reset')
 	)
 );
 
-Route::set('user.profile', 'u/<id>', array('id' => '([0-9]+)'))
+Route::set('user.profile', 'u/<name>', array('name' => '([-a-zA-Z0-9_]+)'))
 	->defaults(array(
 		'controller' => 'User',
 		'action'     => 'profile',

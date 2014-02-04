@@ -1,7 +1,19 @@
 # fusionFramework user module
 
+Contains the following features:
+
+ - User registration
+ - User sessions (login/out)
+ - Password recovery
+ - User settings
+ - Profiles
 
 ## Tasks
+
+**admin:tabs**
+Creates permissions for admin user tabs.
+
+```php minion admin:tabs```
 
 **user:owner**
 Promotes a user to owner rank.
