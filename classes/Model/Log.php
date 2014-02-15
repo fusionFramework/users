@@ -31,8 +31,6 @@ class Model_Log extends ORM {
 	 */
 	public function notify(Model_User $user, $notification, $param = array())
 	{
-		$notify = Kohana::$config->load('notify.' . $notification);
-
 		$notify = ORM::factory('Notification')
 			->where('alias', '=', $notification)
 			->find();
